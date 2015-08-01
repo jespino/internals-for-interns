@@ -2,6 +2,7 @@ Title: Understanding CPython (3.4) Objects (Part 1: The built-in objects)
 Date: 2015-07-31 10:00
 Category: Python
 Author: Jesús Espino
+Tags: python, cpython
 
 First of all, this article talks about CPython, the implementation of reference
 of python language, written in C.
