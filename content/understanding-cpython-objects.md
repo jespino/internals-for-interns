@@ -22,13 +22,25 @@ mechanism of python garbage collection. When the *ob_refcnt* of an object
 reaches 0, the object is freeded.
 
 The *ob_type* is a C pointer to the address where is stored the type object (as
-everything in python, types are objects too).
+everything in python, types are objects too). The type of an object define it's
+behavior.
+
+This two fields are defined in the [*PyObject*
+structure](https://hg.python.org/cpython/file/b4cbecbc0781/Include/object.h#l105),
+and there are another object structure for [variable size objects
+(*PyVarObject*)](https://hg.python.org/cpython/file/b4cbecbc0781/Include/object.h#l111),
+which add the *ob_size* field, which have different meaning depending on the
+object type. We will see it better when we see each python object.
 
 Now knowing this, we can view some of the main built-in objects, how are
 structured and how store the data.
 
 The None object
 ---------------
+
+[[ TODO: GRAPHIC OF THE STRUCTURE ]]
+
+[CPython None structure code](https://hg.python.org/cpython/file/b4cbecbc0781/Objects/object.c#l1453)
 
 The *None* object is the simplest object in python, this one only have the
 *ob_refcnt* and the *ob_type* and, in the CPython, there's only one instance of
@@ -39,6 +51,10 @@ object is the same instance (the same address in memory).
 The float object
 ----------------
 
+[[ TODO: GRAPHIC OF THE STRUCTURE ]]
+
+[CPython float structure code](https://hg.python.org/cpython/file/b4cbecbc0781/Include/floatobject.h#l15)
+
 The *float* object is really simple in CPython, it has a *ob_refcnt*, the
 *ob_type* and an attribute *ob_fval* which store a C double value. Of course,
 the value of the float python object is the value stored in the *ob_fval*
@@ -46,6 +62,10 @@ attribute.
 
 The int object
 --------------
+
+[[ TODO: GRAPHIC OF THE STRUCTURE ]]
+
+[CPython int structure code](https://hg.python.org/cpython/file/b4cbecbc0781/Include/longintrepr.h#l89)
 
 The *int* object is more interesting than the *float* object, because have a
 little bit complex structure. The *int* object have the *ob_refcnt* and the
@@ -62,6 +82,11 @@ the *ob_digit* array (TODO: WRITE HERE HOW IS CALCULATED THIS VALUE).
 The bool object
 ---------------
 
+[[ TODO: GRAPHIC OF THE STRUCTURE ]]
+
+[CPython False structure code](https://hg.python.org/cpython/file/b4cbecbc0781/Objects/boolobject.c#l176)
+[CPython True structure code](https://hg.python.org/cpython/file/b4cbecbc0781/Objects/boolobject.c#l181)
+
 The *bool* objects are *True* and *False*, two instances for all the
 interpreter, each instance have the same structure than an *int* variable, of
 course with the *ob_type* pointing to the *bool* *type*. The *True* instance
@@ -71,18 +96,53 @@ the *ob_size* and *ob_digit* equals to *0*.
 The complex object
 ------------------
 
-The complex objects are objects with a real part and a imaginary part. This
+[[ TODO: GRAPHIC OF THE STRUCTURE ]]
+
+[CPython complex structure code](https://hg.python.org/cpython/file/b4cbecbc0781/Include/complexobject.h#l10)
+
+The *complex* objects are objects with a real part and a imaginary part. This
 objects structure have the *ob_refcnt*, the *ob_type* and the fields *ob_real*
 and *ob_imag* which are two C double values.
 
 The tuple object
 ----------------
 
+[[ TODO: GRAPHIC OF THE STRUCTURE ]]
+
+[CPython tuple structure code](https://hg.python.org/cpython/file/b4cbecbc0781/Include/tupleobject.h#l25)
+
+The *tuple* object has the *ob_refcnt*, the *ob_type*, an *ob_size* attribute
+which store the number of element in the tuple, and an *ob_items*, which is an
+array of C pointers to the objects in the tuple. Lets see an example:
+
+[[ TODO: GRAPHIC EXAMPLE OF TUPLE ]]
+
 The list object
 ---------------
+
+[[ TODO: GRAPHIC OF THE STRUCTURE ]]
+
+[CPython list structure code](https://hg.python.org/cpython/file/b4cbecbc0781/Include/listobject.h#l23)
+
 
 The bytes object
 ----------------
 
+[[ TODO: GRAPHIC OF THE STRUCTURE ]]
+
+[CPython bytes structure code](https://hg.python.org/cpython/file/b4cbecbc0781/Include/bytesobject.h#l31)
+
 The dict object
 ---------------
+
+[[ TODO: GRAPHIC OF THE STRUCTURE ]]
+
+[CPython dict structure code](https://hg.python.org/cpython/file/b4cbecbc0781/Include/dictobject.h#l23)
+[CPython dict keys structure code](https://hg.python.org/cpython/file/b4cbecbc0781/Objects/dictobject.c#l87)
+[CPython dict key entry structure code](https://hg.python.org/cpython/file/b4cbecbc0781/Objects/dictobject.c#l77)
+
+
+What's next?
+------------
+
+In the next part I will explain how works the user defined objects.
