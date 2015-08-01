@@ -38,7 +38,7 @@ structured and how store the data.
 The None object
 ---------------
 
-[[ TODO: GRAPHIC OF THE STRUCTURE ]]
+![None object structure]({filename}/images/cpython-objects/None.svg)
 
 [CPython None structure code](https://hg.python.org/cpython/file/b4cbecbc0781/Objects/object.c#l1453)
 
@@ -51,7 +51,7 @@ object is the same instance (the same address in memory).
 The float object
 ----------------
 
-[[ TODO: GRAPHIC OF THE STRUCTURE ]]
+![float object structure]({filename}/images/cpython-objects/Float.svg)
 
 [CPython float structure code](https://hg.python.org/cpython/file/b4cbecbc0781/Include/floatobject.h#l15)
 
@@ -63,7 +63,7 @@ attribute.
 The int object
 --------------
 
-[[ TODO: GRAPHIC OF THE STRUCTURE ]]
+![int object structure]({filename}/images/cpython-objects/Int.svg)
 
 [CPython int structure code](https://hg.python.org/cpython/file/b4cbecbc0781/Include/longintrepr.h#l89)
 
@@ -74,7 +74,7 @@ define the number of C int elements will use to represent the value of the
 python *int* object. Afther this attribute have an array (called *ob_digit*) of
 C integers with the size of *ob_size*. Lets see an example:
 
-[[ TODO: GRAPHIC EXAMPLE OF INTEGER VALUES ]]
+![int usage example]({filename}/images/cpython-objects/Int-Usage.svg)
 
 The value of the *int* python object is calculated using the values stored in
 the *ob_digit* array (TODO: WRITE HERE HOW IS CALCULATED THIS VALUE).
@@ -82,7 +82,7 @@ the *ob_digit* array (TODO: WRITE HERE HOW IS CALCULATED THIS VALUE).
 The bool object
 ---------------
 
-[[ TODO: GRAPHIC OF THE STRUCTURE ]]
+![bool object structure]({filename}/images/cpython-objects/True-False.svg)
 
 [CPython False structure code](https://hg.python.org/cpython/file/b4cbecbc0781/Objects/boolobject.c#l176)
 [CPython True structure code](https://hg.python.org/cpython/file/b4cbecbc0781/Objects/boolobject.c#l181)
@@ -96,7 +96,7 @@ the *ob_size* and *ob_digit* equals to *0*.
 The complex object
 ------------------
 
-[[ TODO: GRAPHIC OF THE STRUCTURE ]]
+![complex object structure]({filename}/images/cpython-objects/Complex.svg)
 
 [CPython complex structure code](https://hg.python.org/cpython/file/b4cbecbc0781/Include/complexobject.h#l10)
 
@@ -120,7 +120,7 @@ array of C pointers to the objects in the tuple. Lets see an example:
 The list object
 ---------------
 
-[[ TODO: GRAPHIC OF THE STRUCTURE ]]
+![tuple object structure]({filename}/images/cpython-objects/Tuple.svg)
 
 [CPython list structure code](https://hg.python.org/cpython/file/b4cbecbc0781/Include/listobject.h#l23)
 
@@ -128,14 +128,14 @@ The list object
 The bytes object
 ----------------
 
-[[ TODO: GRAPHIC OF THE STRUCTURE ]]
+![bytes object structure]({filename}/images/cpython-objects/Bytes.svg)
 
 [CPython bytes structure code](https://hg.python.org/cpython/file/b4cbecbc0781/Include/bytesobject.h#l31)
 
 The dict object
 ---------------
 
-[[ TODO: GRAPHIC OF THE STRUCTURE ]]
+![dict object structure]({filename}/images/cpython-objects/Dict.svg)
 
 [CPython dict structure code](https://hg.python.org/cpython/file/b4cbecbc0781/Include/dictobject.h#l23)
 [CPython dict keys structure code](https://hg.python.org/cpython/file/b4cbecbc0781/Objects/dictobject.c#l87)
