@@ -38,7 +38,7 @@ structured and how store the data.
 The None object
 ---------------
 
-![None object structure]({filename}/images/cpython-objects/None.svg){:style="width: 40%"}
+![None object structure]({filename}/images/cpython-objects/None.svg){:style="width: 35%"}
 
 [CPython None structure code](https://hg.python.org/cpython/file/b4cbecbc0781/Objects/object.c#l1453)
 
@@ -51,7 +51,7 @@ object is the same instance (the same address in memory).
 The float object
 ----------------
 
-![float object structure]({filename}/images/cpython-objects/Float.svg){:style="width: 40%"}
+![float object structure]({filename}/images/cpython-objects/Float.svg){:style="width: 35%"}
 
 [CPython float structure code](https://hg.python.org/cpython/file/b4cbecbc0781/Include/floatobject.h#l15)
 
@@ -63,7 +63,7 @@ attribute.
 The int object
 --------------
 
-![int object structure]({filename}/images/cpython-objects/Int.svg){:style="width: 40%"}
+![int object structure]({filename}/images/cpython-objects/Int.svg){:style="width: 35%"}
 
 [CPython int structure code](https://hg.python.org/cpython/file/b4cbecbc0781/Include/longintrepr.h#l89)
 
@@ -96,7 +96,7 @@ the *ob_size* and *ob_digit* equals to *0*.
 The complex object
 ------------------
 
-![complex object structure]({filename}/images/cpython-objects/Complex.svg){:style="width: 40%"}
+![complex object structure]({filename}/images/cpython-objects/Complex.svg){:style="width: 35%"}
 
 [CPython complex structure code](https://hg.python.org/cpython/file/b4cbecbc0781/Include/complexobject.h#l10)
 
@@ -107,7 +107,7 @@ and *ob_imag* which are two C double values.
 The tuple object
 ----------------
 
-![tuple object structure]({filename}/images/cpython-objects/Tuple.svg){:style="width: 40%"}
+![tuple object structure]({filename}/images/cpython-objects/Tuple.svg){:style="width: 35%"}
 
 [CPython tuple structure code](https://hg.python.org/cpython/file/b4cbecbc0781/Include/tupleobject.h#l25)
 
@@ -120,7 +120,7 @@ array of C pointers to the objects in the tuple. Lets see an example:
 The list object
 ---------------
 
-![list object structure]({filename}/images/cpython-objects/List.svg){:style="width: 40%"}
+![list object structure]({filename}/images/cpython-objects/List.svg){:style="width: 35%"}
 
 [CPython list structure code](https://hg.python.org/cpython/file/b4cbecbc0781/Include/listobject.h#l23)
 
@@ -128,7 +128,7 @@ The list object
 The bytes object
 ----------------
 
-![bytes object structure]({filename}/images/cpython-objects/Bytes.svg){:style="width: 40%"}
+![bytes object structure]({filename}/images/cpython-objects/Bytes.svg){:style="width: 35%"}
 
 [CPython bytes structure code](https://hg.python.org/cpython/file/b4cbecbc0781/Include/bytesobject.h#l31)
 
