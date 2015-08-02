@@ -132,6 +132,7 @@ The bytes object
 ![bytes object structure]({filename}/images/cpython-objects/Bytes.svg){:style="width: 35%"}
 
 [CPython bytes structure code](https://hg.python.org/cpython/file/b4cbecbc0781/Include/bytesobject.h#l31)
+![bytes usage example]({filename}/images/cpython-objects/Bytes-Usage.svg){:style="width: 50%"}
 
 The dict object
 ---------------
