@@ -13,6 +13,25 @@ of python language, written in C.
 I want to explain how looks like the structure of the python objects, and how
 it works.
 
+We have to know that everything in python is an Object, and that an object and
+an intance is the same. On the other hand, every object, has a class or type
+(is the same in python), and of course, the types are objects too. Let's see it
+in the next diagram:
+
+![Python objects relation]({filename}/images/cpython-objects/Ojbect-Type-Relation.svg){:style="width: 60%"}
+
+The built-in classes and your own classes are types too, and instances of the
+class "type".
+
+![Python classes relation]({filename}/images/cpython-objects/MyClass-BuiltinClass-Relation.svg){:style="width: 60%"}
+
+Knowing this, you can see that a metaclass is simply a class that acts as the "type" class for your defined class.
+
+![Python metaclasses relation]({filename}/images/cpython-objects/Metaclass-Relation.svg){:style="width: 60%"}
+
+The Object basic structure
+--------------------------
+
 Any object in python is a data struct stored in any point of the process
 memory. In CPython every object has an *id* this *id* is the address in memory
 of the object, and you can get it with the *id* built-in function.
@@ -29,15 +48,18 @@ The *ob_type* is a C pointer to the address where is stored the type object (as
 everything in python, types are objects too). The type of an object define it's
 behavior.
 
-This two fields are defined in the [*PyObject*
-structure](https://hg.python.org/cpython/file/b4cbecbc0781/Include/object.h#l105),
-and there are another object structure for [variable size objects
-(*PyVarObject*)](https://hg.python.org/cpython/file/b4cbecbc0781/Include/object.h#l111),
-which add the *ob_size* field, which have different meaning depending on the
+![PyObject object structure]({filename}/images/cpython-objects/PyObject.svg){:style="width: 35%"}
+
+There are another object structure for variable size (*PyVarObject*)
+which add the *ob_size* field. This field have different meaning depending on the
 object type. We will see it better when we see each python object.
 
-Now knowing this, we can view some of the main built-in objects, how are
-structured and how store the data.
+![PyVarObject object structure]({filename}/images/cpython-objects/PyVarObject.svg){:style="width: 35%"}
+
+### Interesting links
+
+* [*PyObject* structure code](https://hg.python.org/cpython/file/b4cbecbc0781/Include/object.h#l105)
+* [*PyVarObject* structure code](https://hg.python.org/cpython/file/b4cbecbc0781/Include/object.h#l111)
 
 The None object
 ---------------
