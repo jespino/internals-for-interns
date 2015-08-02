@@ -88,6 +88,7 @@ the *ob_digit* array (TODO: WRITE HERE HOW IS CALCULATED THIS VALUE).
 ### Interesting links
 
 * [CPython int structure code](https://hg.python.org/cpython/file/b4cbecbc0781/Include/longintrepr.h#l89)
+* [PEP 237 -- Unifying Long Integers and Integers](https://www.python.org/dev/peps/pep-0237/)
 
 The bool object
 ---------------
@@ -104,6 +105,7 @@ the *ob_size* and *ob_digit* equals to *0*.
 
 * [CPython False structure code](https://hg.python.org/cpython/file/b4cbecbc0781/Objects/boolobject.c#l176)
 * [CPython True structure code](https://hg.python.org/cpython/file/b4cbecbc0781/Objects/boolobject.c#l181)
+* [PEP 285 -- Adding a bool type](https://www.python.org/dev/peps/pep-0285/)
 
 The complex object
 ------------------
@@ -152,6 +154,7 @@ The bytes object
 ### Interesting links
 
 * [CPython bytes structure code](https://hg.python.org/cpython/file/b4cbecbc0781/Include/bytesobject.h#l31)
+* [PEP 3137 -- Immutable Bytes and Mutable Buffer](https://www.python.org/dev/peps/pep-3137/)
 
 The dict object
 ---------------
