@@ -4,6 +4,9 @@ Category: Python
 Author: Jesús Espino
 Tags: python, cpython
 
+Introduction
+------------
+
 First of all, this article talks about CPython, the implementation of reference
 of python language, written in C.
 
@@ -41,32 +44,34 @@ The None object
 
 ![None object structure]({filename}/images/cpython-objects/None.svg){:style="width: 35%"}
 
-[CPython None structure code](https://hg.python.org/cpython/file/b4cbecbc0781/Objects/object.c#l1453)
-
 The *None* object is the simplest object in python, this one only have the
 *ob_refcnt* and the *ob_type* and, in the CPython, there's only one instance of
 None for all the interpreter. None is a sigleton instance. This is the reason
 to use the construct *is* *None* for eficciency, because *is* check if the
 object is the same instance (the same address in memory).
 
+### Interesting links
+
+* [CPython None structure code](https://hg.python.org/cpython/file/b4cbecbc0781/Objects/object.c#l1453)
+
 The float object
 ----------------
 
 ![float object structure]({filename}/images/cpython-objects/Float.svg){:style="width: 35%"}
-
-[CPython float structure code](https://hg.python.org/cpython/file/b4cbecbc0781/Include/floatobject.h#l15)
 
 The *float* object is really simple in CPython, it has a *ob_refcnt*, the
 *ob_type* and an attribute *ob_fval* which store a C double value. Of course,
 the value of the float python object is the value stored in the *ob_fval*
 attribute.
 
+### Interesting links
+
+* [CPython float structure code](https://hg.python.org/cpython/file/b4cbecbc0781/Include/floatobject.h#l15)
+
 The int object
 --------------
 
 ![int object structure]({filename}/images/cpython-objects/Int.svg){:style="width: 35%"}
-
-[CPython int structure code](https://hg.python.org/cpython/file/b4cbecbc0781/Include/longintrepr.h#l89)
 
 The *int* object is more interesting than the *float* object, because have a
 little bit complex structure. The *int* object have the *ob_refcnt* and the
@@ -80,13 +85,14 @@ C integers with the size of *ob_size*. Lets see an example:
 The value of the *int* python object is calculated using the values stored in
 the *ob_digit* array (TODO: WRITE HERE HOW IS CALCULATED THIS VALUE).
 
+### Interesting links
+
+* [CPython int structure code](https://hg.python.org/cpython/file/b4cbecbc0781/Include/longintrepr.h#l89)
+
 The bool object
 ---------------
 
 ![bool object structure]({filename}/images/cpython-objects/True-False.svg){:style="width: 70%"}
-
-[CPython False structure code](https://hg.python.org/cpython/file/b4cbecbc0781/Objects/boolobject.c#l176)
-[CPython True structure code](https://hg.python.org/cpython/file/b4cbecbc0781/Objects/boolobject.c#l181)
 
 The *bool* objects are *True* and *False*, two instances for all the
 interpreter, each instance have the same structure than an *int* variable, of
@@ -94,23 +100,28 @@ course with the *ob_type* pointing to the *bool* *type*. The *True* instance
 have the *ob_size* and *ob_digit* equals to *1*, and the *False* instance have
 the *ob_size* and *ob_digit* equals to *0*.
 
+### Interesting links
+
+* [CPython False structure code](https://hg.python.org/cpython/file/b4cbecbc0781/Objects/boolobject.c#l176)
+* [CPython True structure code](https://hg.python.org/cpython/file/b4cbecbc0781/Objects/boolobject.c#l181)
+
 The complex object
 ------------------
 
 ![complex object structure]({filename}/images/cpython-objects/Complex.svg){:style="width: 35%"}
 
-[CPython complex structure code](https://hg.python.org/cpython/file/b4cbecbc0781/Include/complexobject.h#l10)
-
 The *complex* objects are objects with a real part and a imaginary part. This
 objects structure have the *ob_refcnt*, the *ob_type* and the fields *ob_real*
 and *ob_imag* which are two C double values.
+
+### Interesting links
+
+* [CPython complex structure code](https://hg.python.org/cpython/file/b4cbecbc0781/Include/complexobject.h#l10)
 
 The tuple object
 ----------------
 
 ![tuple object structure]({filename}/images/cpython-objects/Tuple.svg){:style="width: 35%"}
-
-[CPython tuple structure code](https://hg.python.org/cpython/file/b4cbecbc0781/Include/tupleobject.h#l25)
 
 The *tuple* object has the *ob_refcnt*, the *ob_type*, an *ob_size* attribute
 which store the number of element in the tuple, and an *ob_items*, which is an
@@ -118,31 +129,41 @@ array of C pointers to the objects in the tuple. Lets see an example:
 
 [[ TODO: GRAPHIC EXAMPLE OF TUPLE ]]
 
+### Interesting links
+
+* [CPython tuple structure code](https://hg.python.org/cpython/file/b4cbecbc0781/Include/tupleobject.h#l25)
+
 The list object
 ---------------
 
 ![list object structure]({filename}/images/cpython-objects/List.svg){:style="width: 35%"}
 
-[CPython list structure code](https://hg.python.org/cpython/file/b4cbecbc0781/Include/listobject.h#l23)
+### Interesting links
 
+* [CPython list structure code](https://hg.python.org/cpython/file/b4cbecbc0781/Include/listobject.h#l23)
 
 The bytes object
 ----------------
 
 ![bytes object structure]({filename}/images/cpython-objects/Bytes.svg){:style="width: 35%"}
 
-[CPython bytes structure code](https://hg.python.org/cpython/file/b4cbecbc0781/Include/bytesobject.h#l31)
 ![bytes usage example]({filename}/images/cpython-objects/Bytes-Usage.svg){:style="width: 50%"}
+
+### Interesting links
+
+* [CPython bytes structure code](https://hg.python.org/cpython/file/b4cbecbc0781/Include/bytesobject.h#l31)
 
 The dict object
 ---------------
 
 ![dict object structure]({filename}/images/cpython-objects/Dict.svg){:style="width: 100%"}
 
-[CPython dict structure code](https://hg.python.org/cpython/file/b4cbecbc0781/Include/dictobject.h#l23)
-[CPython dict keys structure code](https://hg.python.org/cpython/file/b4cbecbc0781/Objects/dictobject.c#l87)
-[CPython dict key entry structure code](https://hg.python.org/cpython/file/b4cbecbc0781/Objects/dictobject.c#l77)
+### Interesting links
 
+* [CPython dict structure code](https://hg.python.org/cpython/file/b4cbecbc0781/Include/dictobject.h#l23)
+* [CPython dict keys structure code](https://hg.python.org/cpython/file/b4cbecbc0781/Objects/dictobject.c#l87)
+* [CPython dict key entry structure code](https://hg.python.org/cpython/file/b4cbecbc0781/Objects/dictobject.c#l77)
+* [PEP 0412 -- Key-Sharing Dictionary](https://www.python.org/dev/peps/pep-0412/)
 
 What's next?
 ------------
